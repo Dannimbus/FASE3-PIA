@@ -1,0 +1,17 @@
+.navbar-custom {
+    background-color: #d9a9a9;
+}
+.dropdown-menu-custom {
+    background-color: #c49999;
+}
+.footer-custom {
+    background-color: #b98989;
+    color: white;
+}
+.footer-custom h6 {
+    font-weight: bold;
+}
+.navbar-brand {
+    font-size: 1.8rem; 
+    font-weight: bold;
+}

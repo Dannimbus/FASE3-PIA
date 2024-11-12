@@ -1,11 +1,11 @@
 .navbar-custom {
-    background-color: #d9a9a9;
+    background-color: #C08B89;
 }
 .dropdown-menu-custom {
     background-color: #c49999;
 }
 .footer-custom {
-    background-color: #b98989;
+    background-color: #7D5E5D;
     color: white;
 }
 .footer-custom h6 {
@@ -15,3 +15,38 @@
     font-size: 1.8rem; 
     font-weight: bold;
 }
+
+body{
+    background-color: #EFE8E7;
+}
+
+.dropdownMenuButton{
+    background-color: black;
+}
+
+/* TITULO */
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.card{
+    text-align: center;
+}
+
+/* BOTON COMPRAR */
+.btn-primary{
+    background-color: #7D5E5D;
+    border-color: beige;
+}
+
+/* EFECTO FLOAT EN CARD */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+  

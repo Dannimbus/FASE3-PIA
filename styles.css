@@ -1,0 +1,93 @@
+/* Navbar y Footer personalizados */
+.navbar-custom {
+    background-color: #d9a9a9;
+}
+.dropdown-menu-custom {
+    background-color: #c49999;
+}
+.footer-custom {
+    background-color: #b98989;
+    color: white;
+}
+
+.cart-sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 0;
+    height: 100%;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item-img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.cart-item-info {
+    flex-grow: 1;
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 120px;
+}
+
+.cart-item-actions span {
+    font-weight: bold;
+}
+
+.cart-item-actions button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.cart-item-actions button:hover {
+    background-color: #c0392b;
+}
+
+/* Estilo total */
+.cart-total {
+    margin-top: auto;
+    font-size: 1.2em;
+}
+
+.cart-total h5 {
+    font-weight: bold;
+}
+
+.product-details, .product-info {
+    background-color: #f3e8e5;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Botones y Cards */
+.btn-primary {
+    background-color: #d9a9a9;
+    border: none;
+}
+.btn-primary:hover {
+    background-color: #c49999;
+}

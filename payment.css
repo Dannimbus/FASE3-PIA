@@ -1,0 +1,68 @@
+.navbar-custom {
+    background-color: #C08B89;
+}
+
+.dropdown-menu-custom {
+    background-color: #c49999;
+}
+
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.card {
+    text-align: center;
+    background-color: aqua;
+}
+
+#container {
+    max-width: 800px; /* Ajusta el ancho máximo */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 20px; /* Espaciado interno */
+    background-color: #f9f9f9; /* Color de fondo */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.btn-primary {
+    background-color: #7D5E5D;
+    border-color: beige;
+}
+
+.footer-custom {
+    background-color: #7D5E5D;
+    color: white;
+}
+
+.footer-custom h6 {
+    font-weight: bold;
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+/* Centrar el contenedor principal */
+.container {
+    flex: 1;
+}
+
+/* Estilo de hover para los botones */
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-media i {
+    font-size: 1.5rem;
+    color: white;
+    margin-right: 10px;
+}
+
+/* Espaciado entre botones y footer */
+.container {
+    margin-bottom: 30px; /* Ajusta según prefieras */
+}

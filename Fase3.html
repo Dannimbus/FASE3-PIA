@@ -15,12 +15,12 @@
     <div class="container">
         <!-- Logo alineado a la izquierda -->
         <a class="navbar-brand" href="#">
-            <img src="logo.jpg" alt="Logo" width="70" height="70" class="me-2">
+            <img src="flower-icon-png.webp" alt="Logo" width="70" height="70" class="me-2">
         </a>
         
         <!-- Texto centrado -->
         <div class="mx-auto">
-            <span class="navbar-text fs-4">Las Hijas del Sol</span>
+            <span class="navbar-text fs-4"><h1>Las Hijas del Sol</h1></span>
         </div>
         
         <!-- Íconos alineados a la derecha -->
@@ -36,9 +36,11 @@
                     <li><a class="dropdown-item" href="#">Invierno</a></li>
                 </ul>
             </div>
+           <!-- Boton Carrito -->
             <a href="#" class="btn btn-outline-secondary me-2">
                 <i class="bi bi-search"></i>
             </a>
+            <!-- boton Buscar -->
             <a href="#" class="btn btn-outline-secondary">
                 <i class="bi bi-cart"></i>
             </a>
@@ -46,64 +48,73 @@
     </div>
 </nav>
 
-<!-- Main Content -->
-<div class="container my-5">
-    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
-        <!-- Producto 1 -->
+<!-- Productos -->
+<div class="container my-4">
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+
+        <!-- PRODUCTO 1 -->
+       <div class="col">
+        <div class="card h-100">
+            <img src="ramo1.jpg" class="card-img-top" alt="Imagen 1">
+            <div class="card-body">
+                <h5 class="card-title">Arreglo de Rosas con Lirios</h5>
+                <p class="card-text">Una combinación de flores con 6 rosas rojas, lily rosa, clavel vino y alstroemerias.</p>
+                <button onclick="buyProduct('1', 'Arreglo de Rosas con Lirios', 'ramo1.jpg', 'Una combinación de flores con 6 rosas rojas, lily rosa, clavel vino y alstroemerias.', '$1200')" class="btn btn-primary">Comprar</button>
+            </div>
+        </div>
+       </div>
+        
+        <!-- Una combinación de flores con 6 rosas rojas, lily rosa, clavel vino y alstroemerias. -->
+        
+        <!-- PRODUCTO 2 -->
         <div class="col">
             <div class="card h-100">
-                <a href="#">
-                <img src="ramo1.jpg" class="card-img-top" alt="Image Placeholder">
-                </a>
-                <div class="card-body text-center">
-                    <h5 class="card-title">Arreglo de Rosas con Lirios</h5>
-                    <p class="card-text">$1200</p>
-                    <p class="card-text">Un arreglo hermoso que llenara de color cualquier lugar.</p>
+                <img src="ramo3.jpg" class="card-img-top" alt="Imagen 3">
+                <div class="card-body">
+                <h5 class="card-title">Ramo con 10 Rosas Rojas</h5>
+                <p class="card-text">Arreglo floral elaborado cuidadosamente por expertos floristas.</p>
+                <button onclick="buyProduct('3', 'Ramo con 10 Rosas Rojas', 'ramo3.jpg', 'Arreglo floral elaborado cuidadosamente por expertos floristas, eligiendo siempre las flores más frescas, hermosas y de la más alta calidad.', '$800')" class="btn btn-primary">Comprar</button>
                 </div>
             </div>
         </div>
-        <!-- Producto 2 -->
+        
+        <!-- Arreglo floral elaborado cuidadosamente por expertos floristas, eligiendo siempre las flores más frescas, hermosas y de la más alta calidad. -->
+        <!-- PRODUCTO 3 -->
         <div class="col">
             <div class="card h-100">
-                <a href="#">
-                <img src="ramo3.jpg" class="card-img-top" alt="Image Placeholder">
-                </a>
-                <div class="card-body text-center">
-                    <h5 class="card-title">Ramo con 10 rosas rojas</h5>
-                    <p class="card-text">$800</p>
-                    <p class="card-text">Un ramo clásico que nunca decepciona.</p>
+                <img src="ramo5.jpg" class="card-img-top" alt="Imagen 5">
+                <div class="card-body">
+                <h5 class="card-title">Ramo "Un Beso del Cielo"</h5>
+                <p class="card-text">Ramo con rosas azules y blancas especiales para gustos diferentes.</p>
+                <button onclick="buyProduct('5', 'Ramo Un Beso del Cielo', 'ramo5.jpg', 'Ramo con rosas azules y blancas especiales para gustos diferentes', '$750')" class="btn btn-primary">Comprar</button>
                 </div>
             </div>
         </div>
-        <!-- Producto 3 -->
+        
+        <!-- Ramo con rosas azules y blancas especiales para gustos diferentes -->
+        <!-- PRODUCTO 4 -->
         <div class="col">
             <div class="card h-100">
-                <a href="#">
-                <img src="ramo5.jpg" class="card-img-top" alt="Image Placeholder">
-                </a>
-                <div class="card-body text-center">
-                    <h5 class="card-title">Ramo "Un beso del cielo"</h5>
-                    <p class="card-text">$750</p>
-                    <p class="card-text">Ramo con rosas azules y blancas especiales para gustos diferentes.</p>
-                </div>
+                <img src="ramo4.jpg" class="card-img-top" alt="Imagen 4">
+            <div class="card-body text-center">
+                <h5 class="card-title">Ramo "Hermoso Atardecer"</h5>
+                <p class="card-text">Una mezcla de girasoles y rosas, creando una combinación única.</p>
+                <button onclick="buyProduct('4', 'Ramo Hermoso Atardecer', 'ramo4.jpg', '¡Descubre el vibrante Ramo de Flores Atardecer Tonos Rojos y Amarillos! Este cautivador arreglo floral, diseñado con pasión y cuidado, capta la belleza del atardecer', '$1100')" class="btn btn-primary">Comprar</button>
+            </div>
             </div>
         </div>
-        <!-- Producto 4 -->
-        <div class="col">
-            <div class="card h-100">
-                <a href="#">
-                <img src="ramo4.jpg" class="card-img-top" alt="Image Placeholder">
-                </a>
-                <div class="card-body text-center">
-                    <h5 class="card-title">Ramo "Hermoso atardecer"</h5>
-                    <p class="card-text">$1100</p>
-                    <p class="card-text">Una mezcla de girasoles y rosas, creando una combinación unica.</p>
-                </div>
-            </div>
-        </div>
-     
+        <!-- Una mezcla de girasoles y rosas, creando una combinación única. -->
+        <!-- 2300 / 68 / abajo 68 / 2500 / 6m-->
     </div>
-</div>
+    </div>
+
+<script>
+    function buyProduct(id, name, image, description, price) {
+        const product = { id, name, image, description, price};
+        localStorage.setItem('selectedProduct', JSON.stringify(product)); //guarda solo el producto seleccionado
+        window.location.href = 'payment.html'; //redirige a la pag de pago
+    }
+</script>
 
 <!-- Footer -->
 <footer class="footer-custom py-4 mt-5">
@@ -150,38 +161,5 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-function toggleSearchBar() {
-    const searchBar = document.getElementById('searchBar');
-    searchBar.classList.toggle('d-none');
-    document.getElementById('searchInput').focus();
-}
-
-function hideSearchBar() {
-    document.getElementById('searchBar').classList.add('d-none');
-}
-
-document.getElementById('searchInput').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        e.preventDefault();
-        const query = e.target.value.toLowerCase();
-        searchProducts(query);
-    }
-});
-
-function searchProducts(query) {
-    const products = document.querySelectorAll('.card');
-    products.forEach(product => {
-        const title = product.querySelector('.card-title').innerText.toLowerCase();
-        if (title.includes(query)) {
-            product.parentElement.classList.remove('d-none');
-        } else {
-            product.parentElement.classList.add('d-none');
-        }
-    });
-}
-</script>
-
 </body>
 </html>

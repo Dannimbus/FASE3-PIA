@@ -1,0 +1,90 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f3e7db;
+    color: #333;
+  }
+  
+  .admin-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  header {
+    background-color: #d17a5a;
+    padding: 20px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  header h1 {
+    margin: 0;
+  }
+  
+  header nav a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  header nav a:hover {
+    text-decoration: underline;
+  }
+  
+  main {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  
+  main h2 {
+    margin-bottom: 20px;
+  }
+  
+  .orders {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .orders-section {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    width: 48%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .orders-section h3 {
+    margin-top: 0;
+    color: #d17a5a;
+  }
+  
+  .orders-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .orders-section li {
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .orders-section li:last-child {
+    border-bottom: none;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #d17a5a;
+    color: white;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+  }

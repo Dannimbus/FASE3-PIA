@@ -5,9 +5,3 @@ function buyProduct(id, name, image, description, price) {
   }
   
  
-
-
-function continuarPago() {
-    alert("Procediendo con el pago...");
-    // agregar pantalla para procesar el pago
-}

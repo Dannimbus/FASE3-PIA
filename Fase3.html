@@ -15,8 +15,14 @@
     <div class="container">
         <!-- Logo alineado a la izquierda -->
         <a class="navbar-brand" href="#">
-            <img src="flower-icon-png.webp" alt="Logo" width="70" height="70" class="me-2">
+            <img src="flower-icon-png.webp" alt="Logo" width="70" height="70" class="me-2" onclick="goLogin()">
         </a>
+<!-- funcion para redirigir a pantalla de login/inicio de admin -->
+        <script>
+            function goLogin(){
+                window.location.href = 'login.html';
+            }
+        </script>
         
         <!-- Texto centrado -->
         <div class="mx-auto">

@@ -26,13 +26,11 @@
         <div class="d-flex align-items-center">
             <div class="dropdown me-2">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                    Temporadas
+                    Diseños Florales
                 </button>
                 <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="#">Primavera</a></li>
-                    <li><a class="dropdown-item" href="#">Verano</a></li>
-                    <li><a class="dropdown-item" href="#">Otoño</a></li>
-                    <li><a class="dropdown-item" href="#">Invierno</a></li>
+                    <li><a class="dropdown-item" href="#">Ramos</a></li>
+                    <li><a class="dropdown-item" href="#">Arreglos</a></li>
                 </ul>
             </div>
            <!-- Boton Carrito -->
@@ -99,9 +97,17 @@
             <span class="error-message" id="titularTarjetaError">Por favor, ingrese un nombre válido.</span>
         </div>
         <div class="d-flex justify-content-between">
+            <button type="button" class="btn btn-light" onclick="goHome()">Volver a inicio</button>
             <button type="button" class="btn btn-success" onclick="mostrarExito()">Pagar</button>
         </div>
     </form>
+
+<script>//funcion para que el boton regrese a la pantalla de inicio
+    function goHome() {
+        window.location.href = 'Fase3.html';
+    }
+</script>
+
 
     <!-- Card de éxito -->
     <div id="pedidoExitoso" class="card" style="display:none; margin-top: 20px;">

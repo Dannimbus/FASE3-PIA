@@ -13,33 +13,79 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-custom">
         <div class="container">
-            <!-- Logo alineado a la izquierda -->
             <a class="navbar-brand" href="#">
-                <img src="logo.jpg" alt="Logo" width="70" height="70" class="me-2">
+                <img src="flower-icon-png.webp" alt="Logo" width="70" height="70" class="me-2">
             </a>
-
-            <!-- Texto centrado -->
             <div class="mx-auto">
                 <span class="navbar-text fs-4">Las Hijas del Sol</span>
             </div>
-
             <a href="#" class="btn btn-secondary">ADMIN</a>
         </div>
     </nav>
 
     <div class="container my-5">
-        <div class="row" id="product-list">
-            <!-- Las tarjetas dinámicas se renderizan aquí -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+            <!-- PRODUCTO 1 -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="ramo1.jpg" class="card-img-top" alt="Imagen 1">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Arreglo de Rosas con Lirios</h5>
+                        <p class="card-text">Una combinación de flores con 6 rosas rojas, lily rosa, clavel vino y alstroemerias.</p>
+                        <p class="card-text">$1200</p>
+                        <button class="btn-edit" onclick="editProduct(0)">Editar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 2 -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="ramo3.jpg" class="card-img-top" alt="Imagen 3">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Ramo con 10 Rosas Rojas</h5>
+                        <p class="card-text">Arreglo floral elaborado cuidadosamente por expertos floristas.</p>
+                        <p class="card-text">$850</p>
+                        <button class="btn-edit" onclick="editProduct(1)">Editar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 3 -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="ramo5.jpg" class="card-img-top" alt="Imagen 5">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Ramo "Un Beso del Cielo"</h5>
+                        <p class="card-text">Ramo con rosas azules y blancas especiales para gustos diferentes.</p>
+                        <p class="card-text">$1350</p>
+                        <button class="btn-edit" onclick="editProduct(2)">Editar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUCTO 4 -->
+            <div class="col">
+                <div class="card h-100">
+                    <img src="ramo4.jpg" class="card-img-top" alt="Imagen 4">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Ramo "Hermoso Atardecer"</h5>
+                        <p class="card-text">Una mezcla de girasoles y rosas, creando una combinación única.</p>
+                        <p class="card-text">$1100</p>
+                        <button class="btn-edit" onclick="editProduct(3)">Editar</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="mt-4">
-            <button class="btn btn-add w-100" id="add-product">
-                <i class="bi bi-plus-circle"></i> Agregar Producto
+            <button class="btn btn-add w-100" id="add-product" >
+                <i class="bi bi-plus-circle" ></i> Agregar Producto
             </button>
         </div>
     </div>
 
-    <footer class="footer-custom py-4">
+    <footer class="footer-custom py-4 mt-5">
         <div class="container">
             <div class="row text-center">
                 <div class="col-md-4">
@@ -63,12 +109,25 @@
                         <li>Best practices</li>
                     </ul>
                 </div>
+            <!-- Redes sociales -->
+                <div>
+                <a class="navbar-brand" href="#">
+                    <i class="bi bi-twitter-x"></i>
+                </a>
+                <a class="navbar-brand" href="#">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                <a class="navbar-brand" href="#">
+                    <i class="bi bi-instagram"></i>
+                </a>
+                <a class="navbar-brand" href="#">
+                    <i class="bi bi-youtube"></i>
+                </a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="GPscript.js"></script>
 </body>
 

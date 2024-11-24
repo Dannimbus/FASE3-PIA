@@ -1,3 +1,4 @@
+
 h1 {
     font-family: 'Times New Roman', Times, serif;
     font-weight: bold;
@@ -18,15 +19,27 @@ h1 {
     transform: translateY(-10px);
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+main
 
 .navbar-custom {
-    background-color: #d9a9a9;
+    background-color: #C08B89;
 }
 
 .navbar-brand {
-    font-size: 1.8rem;
+    font-size: 1.8rem; 
     font-weight: bold;
 }
+
+body{
+    background-color: #EFE8E7;
+}
+
+/* TITULO */
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
 
 .navbar-admin {
     background-color: #d58585;
@@ -101,17 +114,21 @@ h1 {
     background-color: #b89f9f;
 }
 
-.btn-add {
-    background-color: #673ab7;
+button.btn.btn-add {
+    background-color: #C08B89;
     color: white;
+    margin: 20px 0;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
     border-radius: 5px;
-    font-size: 1rem;
-    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
-.btn-add:hover {
-    background-color: #512da8;
+button.btn.btn-add:hover {
+    background-color: #A05F5C;
 }
+
 
 .footer-custom {
     background-color: #b98989;
@@ -135,7 +152,7 @@ body {
 
 .footer-custom {
     margin-top: auto;
-    background-color: #b98989;
+    background-color: #7D5E5D;
     color: white;
     text-align: center;
 }

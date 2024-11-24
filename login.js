@@ -20,5 +20,5 @@ document.getElementById('login-form').addEventListener('submit', function(event)
       return;
     }
   
-    alert('Inicio de sesión exitoso');
+  
   });

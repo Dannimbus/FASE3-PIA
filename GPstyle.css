@@ -1,4 +1,26 @@
 
+h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+.card {
+    text-align: center;
+    margin: 5px;
+    padding: 10px;
+    width: 15rem;
+}
+
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+main
+
 .navbar-custom {
     background-color: #C08B89;
 }
@@ -46,15 +68,12 @@ h1{
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    /* Garantiza que los elementos internos se distribuyan verticalmente */
     height: 100%;
-    /* Hace que todas las tarjetas ocupen el mismo tamaño */
 }
 
 .card img {
     width: 100%;
     height: 150px;
-    /* Tamaño uniforme para las imágenes */
     object-fit: cover;
     background-color: #ddd;
 }
@@ -63,11 +82,9 @@ h1{
     padding: 15px;
     text-align: center;
     flex-grow: 1;
-    /* Permite que el contenido interno se distribuya proporcionalmente */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* Espacia los elementos del contenido */
 }
 
 .card .card-body h5 {

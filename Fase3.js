@@ -23,13 +23,57 @@ function searchProducts(query) {
 // Carrito
 const cart = [];
 
+//Funcion para añadir al carrito
 function addToCart(id, name, price) {
-    if (!cart.some(product => product.id === id)) {
-        const product = { id, name, price };
-        cart.push(product);
-        localStorage.setItem('cart', JSON.stringify(cart));
-        alert(`${name} ha sido añadido al carrito.`);
-    } else {
-        alert(`${name} ya está en el carrito.`);
+    //agregar el producto al carrito
+    const product = {id, name, price};
+    cart.push(product)
+
+    //actualiza la vista de la barra lateral
+    updateCartSidebar();
+
+    alert(`${name} ha sido añadido al carrito.`);
+}
+
+//funcion para actualizar el contenido de la barra
+
+function updateCartSidebar() {
+    const cartItemsContainer = document.getElementById('cartItems');
+    cartItemsContainer.innerHTML = ''; //limpia el contenido actual 
+
+    if (cart.length === 0) {
+        cartItemsContainer.innerHTML = '<p> Tu carrito está vacío.</p>';
+        return;
     }
+
+    cart.forEach((item, index) => {
+        const cartItem = document.createElement('div');
+        cartItem.classList.add('d-flex', 'justify-content-between', 'align-items-center', 'mb-2');
+        cartItem.innerHTML = `
+            <div>
+                <strong>${item.name}</strong>
+                <p class="mb-0">${item.price}</p>
+            </div>
+            <button class="btn btn-sm btn-danger" onclick="removeFromCart(${index})">Eliminar</button>
+        `;
+        cartItemsContainer.appendChild(cartItem);
+    });
+}
+
+//funcion para eliminar un producto del carrito
+
+function removeFromCart(index) {
+    cart.splice(index, 1); //elimina el producto del array
+    updateCartSidebar();
+}
+
+//funcion para proceder al pago
+
+function confirmacionPedido() {
+if (cart.length === 0) {
+    alert('Tu carrito está vacío.');
+    return;
+}
+localStorage.setItem('cart', JSON.stringify(cart)); //guarda el carrito en localstorage
+window.location.href = 'payment.html'; //redirige a la pantalla de pago
 }

@@ -48,39 +48,54 @@
 <!-- Botones de navegación -->
 <div class="container text-center my-4">
     <button onclick="goHome()" class="btn btn-secondary me-3">Regresar a inicio</button>
-    <button onclick="continuePayment()" class="btn btn-primary">Continuar con el pago</button>
+    <button onclick="addToCart()" class="btn btn-primary">Agregar al Carrito</button>
+    <!-- Modificar la direccion del boton para mandarlo al carrito -->
 </div>
 
 
 <script>
-    // Carga el producto desde localStorage y lo muestra en el contenedor
-    document.addEventListener('DOMContentLoaded', () => {
-        const container = document.getElementById('product-card');
-        const product = JSON.parse(localStorage.getItem('selectedProduct'));
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.getElementById('product-card');
+    const product = JSON.parse(localStorage.getItem('selectedProduct'));
 
-        if (product) {
-            // Genera el contenido del producto seleccionado
-            container.innerHTML = `
-                <div class="product-card text-center">
-                    <img src="${product.image}" alt="${product.name}" width="300" class="mb-3">
-                    <h3>${product.name}</h3>
-                    <p>${product.description}</p>
-                    <p>Precio: ${product.price}</p>
+    if (product) {
+        container.innerHTML = `
+            <div class="card mx-auto" style="width: 18rem;">
+                <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                <div class="card-body">
+                    <h5 class="card-title">${product.name}</h5>
+                    <p class="card-text">${product.description}</p>
+                    <p class="card-text fw-bold">${product.price}</p>
                 </div>
-            `;
-        } else {
-            // Muestra un mensaje si no se seleccionó ningún producto
-            container.innerHTML = '<p>No se seleccionó ningún producto. <a href="Fase3.html">Volver al inicio</a>.</p>';
-        }
-    });
+            </div>
+        `;
+    } else {
+        container.innerHTML = '<p>No se encontró ningún producto seleccionado.</p>';
+    }
+});
 
     function goHome() {
         window.location.href = 'Fase3.html';
     }
 
-    function continuePayment() {
-        window.location.href = 'confirmacion.html';
+    function addToCart() {
+    const product = JSON.parse(localStorage.getItem('selectedProduct'));
+    if (!product) {
+        alert('No hay producto seleccionado.');
+        return;
     }
+
+    // Recupera el carrito actual de localStorage o inicializa uno nuevo
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Agrega el producto al carrito
+    cart.push(product);
+
+    // Guarda el carrito actualizado en localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    alert(`${product.name} ha sido añadido al carrito.`);
+}
 </script>
 
 <!-- Footer -->

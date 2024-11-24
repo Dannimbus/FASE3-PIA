@@ -36,12 +36,12 @@
                     Diseños Florales
                 </button>
                 <ul class="dropdown-menu dropdown-menu-custom" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="#">Ramos</a></li>
-                    <li><a class="dropdown-item" href="#">Arreglos</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterProducts('ramos')">Ramos</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterProducts('arreglos')">Arreglos</a></li>
                 </ul>
             </div>
             <!-- Botón Carrito -->
-            <a href="#" class="btn btn-outline-secondary">
+            <a href="#" class="btn btn-outline-secondary" data-bs-toggle="offcanvas" data-bs-target="#cartSidebar">
                 <i class="bi bi-cart"></i>
             </a>
             <!-- Botón Buscar -->
@@ -52,6 +52,21 @@
     </div>
 </nav>
 
+<!-- Barra emergente del carrito -->
+ <div id="cartSidebar" class="offcanvas offcanvas-end" tabindex="-1" aria-labelledby="cartSidebarLabel">
+    <div class="offcanvas-header">
+        <h5 id="cartSidebarLabel">Carrito de Compras</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="close">
+        </button>
+    </div>
+    <div class="offcanvas-body">
+        <div  id="cartItems" class="mb-3">
+            <p>Tu carrito está vacío.</p>
+        </div>
+        <button class="btn-btn-success w-100" onclick="confirmacionPedido()">Proceder al Pago</button>
+    </div>
+ </div>
+ 
 <div id="searchBar" class="container d-none my-3">
     <div class="input-group">
         <input id="searchInput" type="text" class="form-control" placeholder="Buscar productos...">
@@ -68,6 +83,11 @@
         placeholder="Buscar productos...">
 </div>
 
+<script>
+   function confirmacionPedido() {
+        window.location.href = 'confirmacion.html'
+    }
+</script>
 
 <!-- Productos -->
 <div class="container my-4">
@@ -75,7 +95,7 @@
 
         <!-- PRODUCTO 1 -->
        <div class="col">
-        <div class="card h-100">
+        <div class="card h-100 product-card" data-category="arreglos">
             <img src="ramo1.jpg" class="card-img-top" alt="Imagen 1">
             <div class="card-body">
                 <h5 class="card-title">Arreglo de Rosas con Lirios</h5>
@@ -89,7 +109,7 @@
         
         <!-- PRODUCTO 2 -->
         <div class="col">
-            <div class="card h-100">
+            <div class="card h-100 product-card" data-category="ramos">
                 <img src="ramo3.jpg" class="card-img-top" alt="Imagen 3">
                 <div class="card-body">
                 <h5 class="card-title">Ramo con 10 Rosas Rojas</h5>
@@ -102,7 +122,7 @@
         <!-- Arreglo floral elaborado cuidadosamente por expertos floristas, eligiendo siempre las flores más frescas, hermosas y de la más alta calidad. -->
         <!-- PRODUCTO 3 -->
         <div class="col">
-            <div class="card h-100">
+            <div class="card h-100 product-card" data-category="ramos">
                 <img src="ramo5.jpg" class="card-img-top" alt="Imagen 5">
                 <div class="card-body">
                 <h5 class="card-title">Ramo "Un Beso del Cielo"</h5>
@@ -115,7 +135,7 @@
         <!-- Ramo con rosas azules y blancas especiales para gustos diferentes -->
         <!-- PRODUCTO 4 -->
         <div class="col">
-            <div class="card h-100">
+            <div class="card h-100 product-card" data-category="ramos">
                 <img src="ramo4.jpg" class="card-img-top" alt="Imagen 4">
             <div class="card-body text-center">
                 <h5 class="card-title">Ramo "Hermoso Atardecer"</h5>
@@ -183,6 +203,28 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+<!-- script para filtrar productos de las categorias -->
+<script>
+    // Mostrar los productos de la categoría seleccionada
+    function filterProducts(category) {
+        const products = document.querySelectorAll('.product-card');
+
+        products.forEach(product => {
+            if (product.getAttribute('data-category') === category || category === 'all') {
+                product.style.display = 'block'; // Mostrar los productos de la categoría seleccionada
+            } else {
+                product.style.display = 'none'; // Ocultar los productos de otras categorías
+            }
+        });
+    }
+
+    // Mostrar todos los productos al cargar la página
+    window.onload = () => {
+        const products = document.querySelectorAll('.product-card');
+        products.forEach(product => product.style.display = 'block'); // Mostrar todo inicialmente
+    };
+</script>
+
 <script>
     function toggleSearchBar() {
         const searchBar = document.getElementById('searchBar');
@@ -244,6 +286,31 @@
 
         alert(cartContent);
     }
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+    const cartSidebar = document.getElementById('cartItems');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    if (cart.length > 0) {
+        cartSidebar.innerHTML = cart.map(product => `
+            <div class="d-flex justify-content-between align-items-center mb-2">
+                <span>${product.name} - ${product.price}</span>
+                <button class="btn btn-sm btn-danger" onclick="removeFromCart('${product.id}')">Eliminar</button>
+            </div>
+        `).join('');
+    } else {
+        cartSidebar.innerHTML = '<p>Tu carrito está vacío.</p>';
+    }
+});
+
+function removeFromCart(id) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart = cart.filter(product => product.id !== id);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    location.reload();
+}
 </script>
 
 </body>

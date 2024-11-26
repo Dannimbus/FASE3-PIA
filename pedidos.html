@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Pedidos</title>
+    <link rel="stylesheet" href="estadisticas.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .page-container {
+            flex: 1; /* Hace que el contenido principal ocupe el espacio restante */
+        }
+        .table-container {
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-custom">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="flower-icon-png.webp" alt="Logo" width="70" height="70" class="me-2">
+                </a>
+                <div class="mx-auto">
+                    <h1 class="navbar-text fs-4">Gestión de Pedidos</h1>
+                </div>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-secondary me-2">Admin</button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Sidebar -->
+        <button id="toggle-sidebar" class="toggle-button">
+            <i class="bi bi-list"></i>
+        </button>
+          
+        <div class="sidebar" id="sidebar">
+            <div class="profile">
+                <h4>Admin</h4>
+                <p>Descripción breve</p>
+            </div>
+            <ul class="menu">
+                <li><a href="Control.html"><i class="bi bi-speedometer2"></i> Panel de Control</a></li>
+                <li><a href="GPindex.html"><i class="bi bi-box"></i> Gestión de Productos</a></li>
+                <li><a href="pedidos.html"><i class="bi bi-bag"></i> Gestión de Pedidos</a></li>
+                <li><a href="Categorías.html"><i class="bi bi-grid"></i> Gestión de Categorías</a></li>
+                <li><a href="reportes.html"><i class="bi bi-bar-chart"></i> Reporte de Estadísticas</a></li>
+            </ul>
+        </div>
+
+        <script>
+            const toggleButton = document.getElementById("toggle-sidebar");
+            const sidebar = document.getElementById("sidebar");
+          
+            toggleButton.addEventListener("click", () => {
+                sidebar.classList.toggle("open");
+            });
+        </script>
+
+        <!-- Contenedor principal para la tabla -->
+        <div class="container mt-4">
+            <h2 class="text-center">Pedidos</h2>
+
+            <!-- Filtros de pedidos -->
+            <div class="d-flex justify-content-center mb-4">
+                <button id="filtrarRealizados" class="btn btn-success me-2">Pedidos Realizados</button>
+                <button id="filtrarPendientes" class="btn btn-warning">Pedidos Pendientes</button>
+            </div>
+
+            <!-- Tabla de pedidos -->
+            <div class="table-container">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>ID Pedido</th>
+                            <th>Cliente</th>
+                            <th>Fecha</th>
+                            <th>Estado</th>
+                            <th>Total</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaPedidos">
+                        <!-- La tabla se actualizará dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer-custom py-4 mt-auto">
+        <div class="container text-center">
+            <p>&copy; 2024 Las Hijas del Sol</p>
+        </div>
+    </footer>
+
+    <script>
+        // Datos de ejemplo para los pedidos
+        const pedidos = [
+            { id: 1, cliente: 'Rodrigo Pérez', fecha: '2024-11-20', estado: 'Pendiente', total: '$150' },
+            { id: 2, cliente: 'Ana Gómez', fecha: '2024-11-19', estado: 'Realizado', total: '$200' },
+            { id: 3, cliente: 'Luis Martínez', fecha: '2024-11-18', estado: 'Pendiente', total: '$120' },
+            { id: 4, cliente: 'Sofía López', fecha: '2024-11-17', estado: 'Realizado', total: '$180' },
+        ];
+
+        const tablaPedidos = document.getElementById('tablaPedidos');
+
+        // Función para generar filas de la tabla
+        function generarFila(pedido) {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${pedido.id}</td>
+                <td>${pedido.cliente}</td>
+                <td>${pedido.fecha}</td>
+                <td>${pedido.estado}</td>
+                <td>${pedido.total}</td>
+                <td>
+                    <button class="btn btn-primary btn-sm">Ver</button>
+                    <button class="btn btn-danger btn-sm">Eliminar</button>
+                </td>
+            `;
+            tablaPedidos.appendChild(row);
+        }
+
+        // Función para filtrar pedidos
+        function filtrarPedidos(estado) {
+            tablaPedidos.innerHTML = ''; // Limpiar la tabla
+            pedidos.filter(pedido => pedido.estado === estado).forEach(pedido => generarFila(pedido));
+        }
+
+        // Inicializa la tabla con todos los pedidos
+        pedidos.forEach(pedido => generarFila(pedido));
+
+        // Evento para filtrar por pedidos realizados
+        document.getElementById('filtrarRealizados').addEventListener('click', () => {
+            filtrarPedidos('Realizado');
+        });
+
+        // Evento para filtrar por pedidos pendientes
+        document.getElementById('filtrarPendientes').addEventListener('click', () => {
+            filtrarPedidos('Pendiente');
+        });
+    </script>
+</body>
+</html>

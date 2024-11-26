@@ -57,15 +57,13 @@
             ]
         });
 
-        // Validación del formulario de inicio de sesión
-        document.getElementById('login-form').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevenir envío automático del formulario
+      <button type="submit" onclick="goControl()">Sign In</button>
 
-            // Obtener valores del formulario
-            const name = document.getElementById('name').value.trim();
-            const password = document.getElementById('password').value.trim();
-            const email = document.getElementById('email').value.trim();
-            const messageEl = document.getElementById('message');
+<script>
+  function goControl() {
+    window.location.href = 'Control.html';
+}
+</script>
 
             // Buscar al usuario en el grid
             const user = grid.records.find(record =>

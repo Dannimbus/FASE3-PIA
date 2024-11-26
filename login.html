@@ -1,27 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pantalla de Login</title>
-  <link rel="stylesheet" href="login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión</title>
+    <link rel="stylesheet" href="https://rawgit.com/vitmalina/w2ui/master/dist/w2ui.min.css">
+    <link rel="stylesheet" href="login.css">
 </head>
 <body>
+    <div class="login-container">
+        <header>
+            <h1>Las hijas del sol</h1>
+        </header>
+        <form id="login-form">
+            <label for="name">Usuario</label>
+            <input type="text" id="name" name="name" placeholder="Ingresa tu usuario" required>
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" placeholder="Ingresa tu email" required>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+        <p id="message" style="display: none; color: red;"></p>
+        <footer>
+            <p>&copy; 2024 Las hijas del sol</p>
+        </footer>
+    </div>
 
-  <div class="login-container">
-    <header>
-      <h1>Las hijas del sol</h1>
-      
-    </header>
-    <form id="login-form">
-      <label for="name">Name</label>
-      <input type="text" id="name" name="name" placeholder="Enter your name" required>
+    <!-- Grid oculto para validación -->
+    <div id="grid" style="display: none;"></div>
 
-      <label for="password">Password</label>
-      <input type="password" id="password" name="password" placeholder="Enter your password" required>
+    <script type="module">
+        import { w2grid } from 'https://rawgit.com/vitmalina/w2ui/master/dist/w2ui.es6.min.js';
 
-      <label for="email">E-mail</label>
-      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        // Configuración del grid de W2UI
+        let grid = new w2grid({
+            name: 'grid',
+            box: '#grid',
+            searches: [
+                { field: 'user', text: 'Usuario', type: 'text' },
+                { field: 'password', text: 'Contraseña', type: 'text' },
+                { field: 'email', text: 'Email', type: 'text' }
+            ],
+            sortData: [{ field: 'us', direction: 'asc' }],
+            columns: [
+                { field: 'recid', text: 'ID', size: '50px' },
+                { field: 'user', text: 'Usuario', size: '30%' },
+                { field: 'password', text: 'Contraseña', size: '30%' },
+                { field: 'email', text: 'Email', size: '40%' },
+            ],
+            records: [
+                { recid: 1, user: 'Danny', password: '1234', email: 'danny@gmail.com' },
+                { recid: 2, user: 'Annabelle', password: '4321', email: 'annabelle@gmail.com' },
+                { recid: 3, user: 'Zack', password: '5678', email: 'zack@gmail.com' },
+                { recid: 4, user: 'Princess', password: '8765', email: 'princess@gmail.com' }
+            ]
+        });
 
       <button type="submit" onclick="goControl()">Sign In</button>
 
@@ -31,15 +65,26 @@
 }
 </script>
 
-    </form>
-    <footer>
-      <p>&copy; 2024 Las hijas del sol</p>
-    </footer>
-  </div>
-  <script src="login.js"></script>
+            // Buscar al usuario en el grid
+            const user = grid.records.find(record =>
+                record.user === name && record.password === password && record.email === email
+            );
 
-  
- <!-- <i class="fas fa-house-user"></i> -->
+            if (user) {
+                messageEl.style.color = 'green';
+                messageEl.textContent = '¡Inicio de sesión exitoso!';
+                messageEl.style.display = 'block';
 
+                // Redirigir después de 2 segundos
+                setTimeout(() => {
+                    window.location.href = './Categorías.html';
+                }, 2000);
+            } else {
+                messageEl.style.color = 'red';
+                messageEl.textContent = 'Credenciales incorrectas. Inténtalo de nuevo.';
+                messageEl.style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>
